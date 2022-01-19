@@ -7,3 +7,4 @@ resources:
   - release.yaml
   - postgres.yaml
   - sealed-secrate.yaml
+  - secrate-repo.yaml
