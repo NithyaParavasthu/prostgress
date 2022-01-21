@@ -10,4 +10,10 @@ spec:
   timeout: 3m0s
   sourceRef:
     kind: GitRepository
-    name: flux-system 
+    name: flux-system
+  env:
+    - name: postgresqlPassword
+      valueFrom:
+        secretKeyRef:
+          name: basic-auth
+          key: encryptedData.password 
