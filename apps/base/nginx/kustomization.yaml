@@ -6,4 +6,5 @@ resources:
   - namespace.yaml  
   - release.yaml
   - postgres.yaml
+  - secrate-repo.yaml
   - sealed-secrate.yaml
