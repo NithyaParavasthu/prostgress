@@ -15,5 +15,5 @@ spec:
     - name: postgresqlPassword
       valueFrom:
         secretKeyRef:
-          name: basic-auth-sealed
+          name: basic-auth
           key: encryptedData.password
