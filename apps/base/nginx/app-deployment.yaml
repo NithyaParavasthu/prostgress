@@ -1,19 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 
-  labels:
-    app: vprodb
+  name: secret
 spec:
-  selector:
-    matchLabels:
-      app: vprodb
   replicas: 1
   template:
-   
-        env: 
-         - name: MYSQL_ROOT_PASSWORD
-           valueFrom:
-             secretKeyRef:
-               name: app-secret
-               key: db-pass
+    metadata:
+      name: postgres
+      namespace: flux-system
+    spec:
+      chart:
+        spec:
+          chart: postgresql
+          sourceRef:
+            kind: HelmRepository
+            name: bitnami
+      interval: 1m0s
+      releaseName: postgresql
+  env:
+    - name: postgresqlPassword
+      valueFrom:
+        secretKeyRef:
+          name: basic-auth
+          key: encryptedData.password
