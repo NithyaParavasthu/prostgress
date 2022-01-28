@@ -4,6 +4,9 @@ metadata:
   name: postgres
   namespace: flux-system
 spec:
+  selector:
+    matchLabels:
+      name: postgres
   replicas: 1
   template:
     metadata:
